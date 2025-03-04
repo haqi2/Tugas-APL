@@ -1,0 +1,30 @@
+import math
+
+def cek_triple_pythagoras(a, b, c):
+    sisi_terbesar = max(a, b, c)
+    
+    if sisi_terbesar == a:
+        hipotenusa = a
+        sisi1, sisi2 = b, c
+    elif sisi_terbesar == b:
+        hipotenusa = b
+        sisi1, sisi2 = a, c
+    else:
+        hipotenusa = c
+        sisi1, sisi2 = a, b 
+    
+    if math.isclose(hipotenusa ** 2, sisi1 ** 2 + sisi2 ** 2):
+        return True
+    else:
+        return False
+try:
+    a = int(input("Masukkan nilai a: "))
+    b = int(input("Masukkan nilai b: "))
+    c = int(input("Masukkan nilai c: "))
+    
+    if cek_triple_pythagoras(a, b, c):
+        print(f"{a}, {b}, {c} adalah tripel Pythagoras.")
+    else:
+        print(f"{a}, {b}, {c} bukan tripel Pythagoras.")
+except ValueError:
+    print("Input yang dimasukkan tidak valid. Pastikan untuk memasukkan angka bulat.")
